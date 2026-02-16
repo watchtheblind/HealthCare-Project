@@ -22,6 +22,9 @@ The analysis follows a professional **ETL (Extract, Transform, Load)** workflow:
 * Cleaned age ranges to be visualization-ready.
 
 
+Basically, I implemented a T-mode pipeline (Transform) using SQL Views to decouple raw medical data from the analytical layer, ensuring data consistency and reproducibility for BI tools.
+
+
 4. **Presentation Layer:** Created a `medical_analysis_view` to serve as the single source of truth for BI tools.
 
 ## Key Insights (KPIs)

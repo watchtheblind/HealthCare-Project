@@ -27,7 +27,7 @@ The analysis follows a professional **ETL (Extract, Transform, Load)** workflow:
 
 * **The Complexity Paradox:** Patients who are readmitted show higher clinical intensity—averaging **4.6 days** in hospital and **44 lab tests**, compared to 4.2 days and 42 tests for those who didn't. This indicates that longer stays and more testing are markers of high-risk cases.
 * **Critical Specialties:** Circulatory and Respiratory diagnoses exhibit the highest volume of returning patients, suggesting a need for specialized post-discharge follow-up.
-* **Demographic Focus:** The **70-90 age group** represents the most significant strain on hospital resources, requiring targeted geriatric transition programs.
+* **Demographic Focus:** The **70-80 age group** represents the most significant strain on hospital resources, requiring targeted geriatric transition programs.
 
 
 ## Dashboard Preview

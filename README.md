@@ -1,5 +1,5 @@
 
-# Hospital Readmission Analysis: Diabetes 130-US Pipeline
+# Healthcare Analytics: Hospital Readmission Pipeline
 
 ## Project Overview
 
@@ -7,45 +7,41 @@ This project focuses on building a **data pipeline** to analyze hospital readmis
 
 ## Tech Stack
 
-* **Database:** SQLite / DBeaver
-* **Language:** SQL (Advanced CASE statements, CTEs/Views, Data Cleaning)
-* **Domain:** Healthcare Analytics / ICD-9 Coding
+* **Database:** SQLite (SQL)
+* **ETL & Logic:** DBeaver (Data Cleaning, CASE statements, View creation)
+* **Visualization:** Power BI (DAX Measures, Advanced Filtering, Interactive Dashboard)
 
 ## Data Pipeline
 
 The analysis follows a professional **ETL (Extract, Transform, Load)** workflow:
 
-1. **Ingestion:** Raw CSV data containing over 100k records was imported into a staging table.
-2. **Cleaning:** Handled missing values (originally marked as `?`) and normalized inconsistent data types.
-3. **Feature Engineering:** * Mapped over 900 raw **ICD-9 codes** into 9 high-level medical categories (Circulatory, Respiratory, Diabetes, etc.).
-* Simplified the `readmitted` status into a binary `is_readmitted` flag for clearer KPI calculation.
-* Cleaned age ranges to be visualization-ready.
+1. **Data Ingestion:** Loaded 100k+ records of raw diabetic patient data.
+2. **Transformation (SQL):** - Cleaned missing values (`?`) and standardized age ranges.
+   - Mapped complex **ICD-9 codes** into 9 readable diagnostic categories (Circulatory, Digestive, etc.).
+   - Implemented a **Production View** to decouple the analytical layer from raw data.
+3. **Analytics (Power BI):** - Created DAX measures for dynamic **Readmission Rates**.
+   - Designed a high-impact dashboard to correlate clinical effort with patient outcomes.
 
 
-4. **Presentation Layer:** Created a `medical_analysis_view` to serve as the single source of truth for BI tools.
+## Key Business Insights (KPIs)
+
+* **The Complexity Paradox:** Patients who are readmitted show higher clinical intensity—averaging **4.6 days** in hospital and **44 lab tests**, compared to 4.2 days and 42 tests for those who didn't. This indicates that longer stays and more testing are markers of high-risk cases.
+* **Critical Specialties:** Circulatory and Respiratory diagnoses exhibit the highest volume of returning patients, suggesting a need for specialized post-discharge follow-up.
+* **Demographic Focus:** The **70-90 age group** represents the most significant strain on hospital resources, requiring targeted geriatric transition programs.
 
 
+## Dashboard Preview
+![Dashboard Screenshot](./docs/dashboard_final.png) 
 
-Basically, I implemented a T-mode pipeline (Transform) using SQL Views to decouple raw medical data from the analytical layer, ensuring data consistency and reproducibility for BI tools.
+
+## Repository Structure
+* `/sql`: `medical_analysis_pipeline.sql` (Full transformation script).
+* `/docs`: Source dataset information.
+* `/docs/healthcare project.pbix`: The interactive Power BI dashboard.
 
 
-## Key Insights (KPIs)
-
-Based on the SQL analysis:
-
-* **Primary Risk Factor:** Patients with **Circulatory** issues show the highest length of stay and significant readmission rates.
-* **Medication Impact:** Preliminary data suggests that patients with "Changes" in their diabetes medication have different readmission profiles compared to those with stable prescriptions.
-* **Data Quality:** Identified that certain fields like `weight` had over 90% missing data, highlighting areas for hospital data collection improvement.
-
-## 📂 Repository Structure
-
-```bash
-├── sql/
-│   └── medical_analysis_pipeline.sql  # The main "gordote" script
-├── data/
-│   └── source_link.txt                # Link to the original Kaggle dataset
-└── README.md                          # Project documentation
-
-```
+---
+**Developed by:** [Luis Monasterios]  
+**Let's connect:** [https://www.linkedin.com/in/luis-monasterios-aa369a17b/]
 
 
